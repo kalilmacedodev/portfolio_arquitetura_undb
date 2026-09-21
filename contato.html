@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contato com a coordenação do curso de Arquitetura e Urbanismo da UNDB e formulário de submissão de trabalhos discentes para o portfólio.">
+  <title>Contato & Submissão • UNDB Arquitetura</title>
+
+  <!-- Estilos Globais e Componentes -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       CABEÇALHO
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand-identity">
+        <div class="brand-identity__logo">ARQUITETURA UNDB</div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Projetos</a>
+        <a href="sobre.html" class="nav-link">Sobre o Curso</a>
+        <a href="sobre.html#laboratorios" class="nav-link">Laboratórios</a>
+        <a href="contato.html" class="nav-link active">Contato & Submissão</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn-admin-access" title="Área Restrita da Coordenação">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Área Docente
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO DE CONTATO
+       ======================================================================== -->
+  <main style="padding: 5rem 0 6rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin-bottom: 4rem;">
+        <span class="tag-code" style="color: var(--text-muted); display: block; margin-bottom: 1rem;">Comunicação & Curadoria</span>
+        <h1 style="margin-bottom: 1.5rem;">Fale com a Coordenação ou Submeta seu Projeto</h1>
+        <p class="lead">
+          Canal direto para acadêmicos submeterem trabalhos desenvolvidos em ateliê para publicação no portfólio oficial, além de atendimento a interessados no curso e parcerias institucionais.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4.5rem;">
+        <!-- Formulário de Submissão de Projeto -->
+        <div style="background: var(--bg-secondary); padding: 3rem; border: 1px solid var(--border-light); border-radius: 2px;">
+          <div style="margin-bottom: 2rem;">
+            <span class="tag-code">Canal Discente</span>
+            <h2 style="font-size: 1.6rem; margin-top: 0.5rem;">Submissão de Projeto Acadêmico</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.4rem;">
+              Trabalhos submetidos passarão pela banca curatorial da coordenação antes da publicação no catálogo.
+            </p>
+          </div>
+
+          <form id="submission-form" onsubmit="event.preventDefault(); alert('Trabalho enviado com sucesso para a banca curatorial da UNDB!'); this.reset();">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Título do Projeto *</label>
+                <input type="text" required placeholder="Ex: Pavilhão de Memória" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+              </div>
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Tipologia / Categoria *</label>
+                <select required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;">
+                  <option value="">Selecione...</option>
+                  <option value="institucional">Institucional & Cultural</option>
+                  <option value="residencial">Residencial</option>
+                  <option value="urbanismo">Urbanismo & Paisagismo</option>
+                  <option value="sustentabilidade">Sustentabilidade & TCC</option>
+                  <option value="interiores">Patrimônio & Restauro</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Autores (Alunos) *</label>
+                <input type="text" required placeholder="Nomes dos integrantes" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+              </div>
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Professor(a) Orientador(a) *</label>
+                <input type="text" required placeholder="Nome do docente" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Semestre Letivo *</label>
+                <input type="text" required placeholder="Ex: 8º Semestre / 2026" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+              </div>
+              <div>
+                <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Softwares Utilizados</label>
+                <input type="text" placeholder="Ex: Revit, Rhino, Twinmotion" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Link do Portfólio / Pranchas (Google Drive, OneDrive ou Behance) *</label>
+              <input type="url" required placeholder="https://drive.google.com/..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem;" />
+            </div>
+
+            <div style="margin-bottom: 1.75rem;">
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Breve Resumo / Memorial Justificativo *</label>
+              <textarea rows="4" required placeholder="Descreva os conceitos de partido arquitetônico, materialidade e inserção urbana..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-medium); background: #FFF; border-radius: 2px; font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Enviar Proposta para Curadoria
+            </button>
+          </form>
+        </div>
+
+        <!-- Informações de Atendimento e Campus -->
+        <div>
+          <span class="tag-code" style="color: var(--text-muted); display: block; margin-bottom: 0.75rem;">Informações Oficiais</span>
+          <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Coordenação de Curso</h2>
+
+          <div class="specs-editorial-table">
+            <div class="specs-editorial-row">
+              <span class="specs-editorial-key">Campus</span>
+              <span>UNDB Renascença (Bloco de Arquitetura)</span>
+            </div>
+            <div class="specs-editorial-row">
+              <span class="specs-editorial-key">Endereço</span>
+              <span>Av. Colares Moreira, 443 - Renascença II, São Luís - MA</span>
+            </div>
+            <div class="specs-editorial-row">
+              <span class="specs-editorial-key">E-mail</span>
+              <span>arquitetura@undb.edu.br</span>
+            </div>
+            <div class="specs-editorial-row">
+              <span class="specs-editorial-key">Telefone</span>
+              <span>(98) 4009-7070 / Ramal 7082</span>
+            </div>
+            <div class="specs-editorial-row">
+              <span class="specs-editorial-key">Horário</span>
+              <span>Segunda a Sexta, das 08h00 às 21h00</span>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-tertiary); padding: 2rem; margin-top: 2.5rem; border-radius: 2px;">
+            <h4 style="margin-bottom: 0.5rem;">Visitas Guiadas aos Ateliês</h4>
+            <p style="font-size: 0.88rem; line-height: 1.6;">
+              Escolas de ensino médio, vestibulandos e pesquisadores podem agendar visitas técnicas aos laboratórios de maquetaria e ateliês de projeto entrando em contato por e-mail institucional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       RODAPÉ
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <h3 class="footer-brand-title">UNDB ARQUITETURA</h3>
+          <p style="font-size: 0.88rem; max-width: 320px; margin-bottom: 1.5rem;">
+            Curso de Arquitetura e Urbanismo do Centro Universitário Dom Bosco. Formando profissionais com excelência técnica, ética e sensibilidade urbana.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Galeria de Projetos</a></li>
+            <li><a href="sobre.html" class="footer-link">Sobre o Curso</a></li>
+            <li><a href="sobre.html#corpo-docente" class="footer-link">Corpo Docente</a></li>
+            <li><a href="sobre.html#laboratorios" class="footer-link">Laboratórios & BIM</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Tipologias</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Institucional & Cultural</a></li>
+            <li><a href="index.html" class="footer-link">Residencial Sustentável</a></li>
+            <li><a href="index.html" class="footer-link">Urbanismo & Paisagismo</a></li>
+            <li><a href="index.html" class="footer-link">Trabalhos de Graduação (TCC)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Acesso & Campus</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Av. Colares Moreira, 443<br>
+            Jardim Renascença, São Luís - MA<br>
+            CEP 65075-441
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 UNDB - Centro Universitário Dom Bosco. Todos os direitos reservados.</span>
+        <span>Projeto Acadêmico • Arquitetura & Urbanismo</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

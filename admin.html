@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Curatorial & Administrativo • UNDB Arquitetura</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body style="background-color: var(--bg-secondary);">
+
+  <!-- Cabeçalho Administrativo -->
+  <header class="site-header" style="background: #FFFFFF;">
+    <div class="container site-header__inner">
+      <a href="admin.html" class="brand-identity">
+        <div class="brand-identity__logo">
+          ARQUITETURA UNDB
+          <span class="brand-identity__badge" style="background: var(--text-primary); color: #FFF;">PAINEL DOCENTE</span>
+        </div>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <a href="index.html" target="_blank" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.45rem 0.9rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Ver Portfólio Público
+        </a>
+        <a href="login.html" class="btn-admin-access" style="color: #DC2626; border-color: rgba(220, 38, 38, 0.3);">
+          Sair
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal do Painel -->
+  <main style="padding: 3.5rem 0 5rem;">
+    <div class="container">
+      
+      <!-- Topo com Estatísticas Rápidas -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem;">
+        <div>
+          <span class="tag-code">Ambiente Curatorial</span>
+          <h1 style="font-size: 2rem; margin-top: 0.25rem;">Projetos Acadêmicos Cadastrados</h1>
+        </div>
+        <button class="btn btn-primary" onclick="alert('Funcionalidade de inserção de novos projetos pronta para ser integrada na fase de backend/edições!')">
+          + Cadastrar Novo Trabalho
+        </button>
+      </div>
+
+      <!-- Cards de Métricas do Sistema -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: #FFFFFF; padding: 1.5rem; border: 1px solid var(--border-light); border-radius: 2px;">
+          <span class="tag-code">Projetos no Ar</span>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem;" id="admin-total-projects">8</div>
+        </div>
+        <div style="background: #FFFFFF; padding: 1.5rem; border: 1px solid var(--border-light); border-radius: 2px;">
+          <span class="tag-code">Tipologias Ativas</span>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem;">5</div>
+        </div>
+        <div style="background: #FFFFFF; padding: 1.5rem; border: 1px solid var(--border-light); border-radius: 2px;">
+          <span class="tag-code">Destaques na Home</span>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem;">4</div>
+        </div>
+        <div style="background: #FFFFFF; padding: 1.5rem; border: 1px solid var(--border-light); border-radius: 2px;">
+          <span class="tag-code">Submissões Pendentes</span>
+          <div style="font-size: 2rem; font-weight: 700; color: #10B981; margin-top: 0.5rem;">2</div>
+        </div>
+      </div>
+
+      <!-- Tabela Administrativa de Gerenciamento de Projetos -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 2px; overflow: hidden;">
+        <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-size: 1.1rem;">Catálogo Discente</h3>
+          <span class="tag-code">Ordenado por ano letivo</span>
+        </div>
+
+        <table class="projects-list-table">
+          <thead>
+            <tr>
+              <th style="width: 70px;">Prancha</th>
+              <th style="width: 100px;">Ano</th>
+              <th>Título do Trabalho</th>
+              <th>Tipologia</th>
+              <th>Autores</th>
+              <th>Status</th>
+              <th style="text-align: right;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body">
+            <!-- Inserido dinamicamente via data.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <footer style="padding: 1.5rem 0; text-align: center; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-light); background: #FFF;">
+    © 2026 UNDB Arquitetura & Urbanismo • Ambiente Administrativo
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('admin-table-body');
+      if (!tbody) return;
+
+      tbody.innerHTML = UNDB_PROJECTS.map(proj => `
+        <tr class="projects-list-row">
+          <td>
+            <img src="${proj.coverImage}" alt="${proj.title}" class="projects-list-thumb" />
+          </td>
+          <td class="col-code">${proj.year}</td>
+          <td class="col-title">${proj.title}</td>
+          <td><span class="badge-outline" style="font-size: 0.65rem;">${proj.categoryLabel}</span></td>
+          <td style="font-size: 0.85rem;">${proj.author}</td>
+          <td>
+            <span class="badge-outline ${proj.featured ? 'badge-featured' : ''}">
+              ${proj.featured ? '★ Destaque' : 'Ativo'}
+            </span>
+          </td>
+          <td style="text-align: right;">
+            <a href="projeto.html?id=${proj.id}" target="_blank" class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.72rem; margin-right: 0.25rem;">
+              Ver
+            </a>
+            <button class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.72rem;" onclick="alert('Edição de [${proj.title}] selecionada. A ser integrada na fase de back/edições.')">
+              Editar
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

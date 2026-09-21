@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Projetos de Arquitetura e Urbanismo do Centro Universitário Dom Bosco (UNDB). Trabalhos acadêmicos, memoriais, pranchas e ateliês de projeto.">
+  <meta name="keywords" content="Arquitetura, Urbanismo, UNDB, São Luís, Portfólio, Projetos, TCC, BIM">
+  <title>UNDB Arquitetura & Urbanismo • Portfólio de Projetos</title>
+
+  <!-- Estilos Globais e Componentes -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       CABEÇALHO / HEADER (ESTILO DAVID CHIPPERFIELD)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand-identity">
+        <div class="brand-identity__logo">ARQUITETURA UNDB</div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Projetos</a>
+        <a href="sobre.html" class="nav-link">Sobre o Curso</a>
+        <a href="sobre.html#laboratorios" class="nav-link">Laboratórios</a>
+        <a href="contato.html" class="nav-link">Contato & Submissão</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn-admin-access" title="Área Restrita da Coordenação">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Área Docente
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO EDITORIAL - MANIFESTO
+       ======================================================================== -->
+  <section class="hero-editorial">
+    <div class="container">
+      <h1 class="hero-title">
+        Arquitetura como pensamento crítico, rigor construtivo e sensibilidade territorial.
+      </h1>
+
+      <p class="lead" style="max-width: 980px; margin-top: 2rem;">
+        O portfólio discente do curso de Arquitetura e Urbanismo da UNDB reúne projetos experimentais, planos diretores urbanos e investigações bioclimáticas desenvolvidos em ateliê. Uma vitrine de excelência acadêmica voltada à transformação do ambiente construído maranhense e global.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTROLES DE FILTRO E PESQUISA DA GALERIA
+       ======================================================================== -->
+  <section class="gallery-controls-section">
+    <div class="container gallery-controls-bar">
+      <!-- Filtros por Categoria -->
+      <div class="filter-categories" role="tablist">
+        <button class="filter-btn active" data-category="all">
+          Todos <span class="filter-count"></span>
+        </button>
+        <button class="filter-btn" data-category="institucional">
+          Institucional <span class="filter-count"></span>
+        </button>
+        <button class="filter-btn" data-category="residencial">
+          Residencial <span class="filter-count"></span>
+        </button>
+        <button class="filter-btn" data-category="urbanismo">
+          Urbanismo <span class="filter-count"></span>
+        </button>
+        <button class="filter-btn" data-category="sustentabilidade">
+          Sustentabilidade <span class="filter-count"></span>
+        </button>
+        <button class="filter-btn" data-category="interiores">
+          Patrimônio <span class="filter-count"></span>
+        </button>
+      </div>
+
+      <!-- Ferramentas: Busca + Alternador de Visualização (Grid / Lista) -->
+      <div class="gallery-tools">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="project-search" placeholder="Buscar por projeto, autor..." />
+        </div>
+
+        <div class="view-mode-toggle" title="Alterar modo de visualização">
+          <button id="view-grid-btn" class="view-btn active" title="Visualização em Grade Editorial">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </button>
+          <button id="view-list-btn" class="view-btn" title="Visualização em Lista / Índice Técnico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       GALERIA DINÂMICA DE PROJETOS
+       ======================================================================== -->
+  <main class="projects-showcase">
+    <div class="container">
+      <!-- Container onde o JavaScript injetará a grade ou a lista -->
+      <div id="projects-container"></div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       SEÇÃO EDITORIAL INSTITUCIONAL
+       ======================================================================== -->
+  <section style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-light); padding: 5rem 0;">
+    <div class="container">
+      <div style="max-width: 900px;">
+        <span class="tag-code" style="color: var(--text-muted); margin-bottom: 1rem; display: block;">Abordagem Pedagógica</span>
+        <h2 style="margin-bottom: 1.5rem;">O Ateliê de Projeto como Laboratório de Cidade e Paisagem</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+          Na UNDB, o aprendizado da arquitetura ocorre através da prática reflexiva em ateliê aberto. Nossos acadêmicos exploram desde o detalhe construtivo em marcenaria e concreto até o planejamento urbano em escala metropolitana, utilizando ferramentas BIM contemporâneas, modelagem paramétrica e fabricação digital na Maquetaria.
+        </p>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="sobre.html" class="btn btn-primary">Conhecer o Curso e Docentes</a>
+          <a href="contato.html" class="btn btn-outline">Submeter Projeto Discente</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODAL DE VISUALIZAÇÃO RÁPIDA (QUICK VIEW DRAWER)
+       ======================================================================== -->
+  <div id="project-modal" class="project-modal-backdrop" aria-hidden="true" role="dialog">
+    <div class="project-modal-card">
+      <div class="project-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span id="modal-code" class="tag-code">ARC-0000-00</span>
+          <span id="modal-category" class="badge-outline">Tipologia</span>
+        </div>
+        <button id="modal-close-btn" class="project-modal-close-btn" title="Fechar Visualização">✕</button>
+      </div>
+
+      <div class="project-modal-body">
+        <!-- Coluna Visual: Imagem Principal e Miniaturas -->
+        <div>
+          <img id="modal-main-image" src="" alt="Vista do Projeto" class="modal-gallery-main" />
+          <div id="modal-thumbs" class="modal-gallery-thumbs"></div>
+        </div>
+
+        <!-- Coluna de Informações e Memorial -->
+        <div class="modal-info-panel">
+          <h2 id="modal-title" class="modal-project-title">Título do Projeto</h2>
+          <p id="modal-summary" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);"></p>
+
+          <div class="modal-specs-list">
+            <div class="modal-spec-item">
+              <span class="modal-spec-key">Autores</span>
+              <span id="modal-author" class="modal-spec-val">---</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-key">Orientador</span>
+              <span id="modal-advisor" class="modal-spec-val">---</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-key">Localização</span>
+              <span id="modal-location" class="modal-spec-val">---</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-key">Área Construída</span>
+              <span id="modal-area" class="modal-spec-val">---</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <span class="tag-code" style="color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Tecnologias & Softwares</span>
+            <div id="modal-softwares" class="software-tags-wrap"></div>
+          </div>
+
+          <div class="modal-actions-footer">
+            <a id="modal-full-link" href="#" class="btn btn-primary" style="flex: 1;">
+              Abrir Memorial Completo & Pranchas
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       RODAPÉ INSTITUCIONAL (FOOTER)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <h3 class="footer-brand-title">UNDB ARQUITETURA</h3>
+          <p style="font-size: 0.88rem; max-width: 320px; margin-bottom: 1.5rem;">
+            Curso de Arquitetura e Urbanismo do Centro Universitário Dom Bosco. Formando profissionais com excelência técnica, ética e sensibilidade urbana.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Galeria de Projetos</a></li>
+            <li><a href="sobre.html" class="footer-link">Sobre o Curso</a></li>
+            <li><a href="sobre.html#corpo-docente" class="footer-link">Corpo Docente</a></li>
+            <li><a href="sobre.html#laboratorios" class="footer-link">Laboratórios & BIM</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Tipologias</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Institucional & Cultural</a></li>
+            <li><a href="index.html" class="footer-link">Residencial Sustentável</a></li>
+            <li><a href="index.html" class="footer-link">Urbanismo & Paisagismo</a></li>
+            <li><a href="index.html" class="footer-link">Trabalhos de Graduação (TCC)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Acesso & Campus</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Av. Colares Moreira, 443<br>
+            Jardim Renascença, São Luís - MA<br>
+            CEP 65075-441
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 UNDB - Centro Universitário Dom Bosco. Todos os direitos reservados.</span>
+        <span>Projeto Acadêmico • Arquitetura & Urbanismo</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
