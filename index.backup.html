@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfólio de Projetos de Arquitetura e Urbanismo do Centro Universitário Dom Bosco (UNDB). Trabalhos acadêmicos, memoriais, pranchas e ateliês de projeto.">
   <meta name="keywords" content="Arquitetura, Urbanismo, UNDB, São Luís, Portfólio, Projetos, TCC, BIM">
-  <title>UNDB Arquitetura & Urbanismo • Portfólio de Projetos</title>
+  <title>Arquitetura UNDB</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/undb-logo.png">
+  <link rel="apple-touch-icon" href="assets/images/undb-logo.png">
 
   <!-- Estilos Globais e Componentes -->
   <link rel="stylesheet" href="css/style.css">
@@ -18,8 +22,8 @@
        ======================================================================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand-identity">
-        <div class="brand-identity__logo">ARQUITETURA UNDB</div>
+      <a href="index.html" class="brand-identity" aria-label="UNDB">
+        <img src="assets/images/undb-brand.png" alt="UNDB" class="brand-identity__brand-img">
       </a>
 
       <nav class="main-nav">
@@ -44,22 +48,33 @@
   <!-- ========================================================================
        HERO EDITORIAL - MANIFESTO
        ======================================================================== -->
-  <section class="hero-editorial">
-    <div class="container">
-      <h1 class="hero-title">
-        Arquitetura como pensamento crítico, rigor construtivo e sensibilidade territorial.
-      </h1>
+  <section class="hero-editorial" id="apresentacao">
+    <div class="container hero-editorial__container">
+      <div class="hero-editorial__content">
+        <h1 class="hero-title">
+          Arquitetura como pensamento crítico, rigor construtivo e sensibilidade territorial.
+        </h1>
 
-      <p class="lead" style="max-width: 980px; margin-top: 2rem;">
-        O portfólio discente do curso de Arquitetura e Urbanismo da UNDB reúne projetos experimentais, planos diretores urbanos e investigações bioclimáticas desenvolvidos em ateliê. Uma vitrine de excelência acadêmica voltada à transformação do ambiente construído maranhense e global.
-      </p>
+        <p class="lead" style="max-width: 980px; margin-top: 1.75rem;">
+          O portfólio discente do curso de Arquitetura e Urbanismo da UNDB reúne projetos experimentais, planos diretores urbanos e investigações bioclimáticas desenvolvidos em ateliê. Uma vitrine de excelência acadêmica voltada à transformação do ambiente construído maranhense e global.
+        </p>
+      </div>
+
+      <div class="hero-scroll-prompt">
+        <a href="#galeria" class="hero-scroll-link" id="hero-scroll-link">
+          <span>Explorar Projetos</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ========================================================================
        CONTROLES DE FILTRO E PESQUISA DA GALERIA
        ======================================================================== -->
-  <section class="gallery-controls-section">
+  <section class="gallery-controls-section" id="galeria">
     <div class="container gallery-controls-bar">
       <!-- Filtros por Categoria -->
       <div class="filter-categories" role="tablist">

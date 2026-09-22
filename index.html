@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfólio de Projetos de Arquitetura e Urbanismo do Centro Universitário Dom Bosco (UNDB). Trabalhos acadêmicos, memoriais, pranchas e ateliês de projeto.">
   <meta name="keywords" content="Arquitetura, Urbanismo, UNDB, São Luís, Portfólio, Projetos, TCC, BIM">
-  <title>UNDB Arquitetura & Urbanismo • Portfólio de Projetos</title>
+  <title>Arquitetura UNDB</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/undb-logo.png">
+  <link rel="apple-touch-icon" href="assets/images/undb-logo.png">
 
   <!-- Estilos Globais e Componentes -->
   <link rel="stylesheet" href="css/style.css">
@@ -18,8 +22,8 @@
        ======================================================================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="brand-identity">
-        <div class="brand-identity__logo">ARQUITETURA UNDB</div>
+      <a href="index.html" class="brand-identity" aria-label="UNDB">
+        <img src="assets/images/undb-brand.png" alt="UNDB" class="brand-identity__brand-img">
       </a>
 
       <nav class="main-nav">
@@ -44,42 +48,53 @@
   <!-- ========================================================================
        HERO EDITORIAL - MANIFESTO
        ======================================================================== -->
-  <section class="hero-editorial">
-    <div class="container">
-      <h1 class="hero-title">
-        Arquitetura como pensamento crítico, rigor construtivo e sensibilidade territorial.
-      </h1>
+  <section class="hero-editorial" id="apresentacao">
+    <div class="container hero-editorial__container">
+      <div class="hero-editorial__content">
+        <h1 class="hero-title">
+          Arquitetura como pensamento crítico, rigor construtivo e sensibilidade territorial.
+        </h1>
 
-      <p class="lead" style="max-width: 980px; margin-top: 2rem;">
-        O portfólio discente do curso de Arquitetura e Urbanismo da UNDB reúne projetos experimentais, planos diretores urbanos e investigações bioclimáticas desenvolvidos em ateliê. Uma vitrine de excelência acadêmica voltada à transformação do ambiente construído maranhense e global.
-      </p>
+        <p class="lead" style="max-width: 980px; margin-top: 1.75rem;">
+          O portfólio discente do curso de Arquitetura e Urbanismo da UNDB reúne projetos experimentais, planos diretores urbanos e investigações bioclimáticas desenvolvidos em ateliê. Uma vitrine de excelência acadêmica voltada à transformação do ambiente construído maranhense e global.
+        </p>
+      </div>
+
+      <div class="hero-scroll-prompt">
+        <a href="#galeria" class="hero-scroll-link" id="hero-scroll-link">
+          <span>Explorar Projetos</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ========================================================================
        CONTROLES DE FILTRO E PESQUISA DA GALERIA
        ======================================================================== -->
-  <section class="gallery-controls-section">
+  <section class="gallery-controls-section" id="galeria">
     <div class="container gallery-controls-bar">
       <!-- Filtros por Categoria -->
       <div class="filter-categories" role="tablist">
         <button class="filter-btn active" data-category="all">
-          Todos <span class="filter-count"></span>
+          Todos <span class="filter-count">(8)</span>
         </button>
         <button class="filter-btn" data-category="institucional">
-          Institucional <span class="filter-count"></span>
+          Institucional <span class="filter-count">(2)</span>
         </button>
         <button class="filter-btn" data-category="residencial">
-          Residencial <span class="filter-count"></span>
+          Residencial <span class="filter-count">(1)</span>
         </button>
         <button class="filter-btn" data-category="urbanismo">
-          Urbanismo <span class="filter-count"></span>
+          Urbanismo <span class="filter-count">(2)</span>
         </button>
         <button class="filter-btn" data-category="sustentabilidade">
-          Sustentabilidade <span class="filter-count"></span>
+          Sustentabilidade <span class="filter-count">(1)</span>
         </button>
         <button class="filter-btn" data-category="interiores">
-          Patrimônio <span class="filter-count"></span>
+          Patrimônio <span class="filter-count">(1)</span>
         </button>
       </div>
 
@@ -152,21 +167,15 @@
   <div id="project-modal" class="project-modal-backdrop" aria-hidden="true" role="dialog">
     <div class="project-modal-card">
       <div class="project-modal-header">
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <span id="modal-code" class="tag-code">ARC-0000-00</span>
-          <span id="modal-category" class="badge-outline">Tipologia</span>
-        </div>
         <button id="modal-close-btn" class="project-modal-close-btn" title="Fechar Visualização">✕</button>
       </div>
 
       <div class="project-modal-body">
-        <!-- Coluna Visual: Imagem Principal e Miniaturas -->
-        <div>
+        <!-- Linha Superior: Foto Principal (Esquerda) e Informações (Direita) -->
+        <div class="modal-main-image-wrap">
           <img id="modal-main-image" src="" alt="Vista do Projeto" class="modal-gallery-main" />
-          <div id="modal-thumbs" class="modal-gallery-thumbs"></div>
         </div>
 
-        <!-- Coluna de Informações e Memorial -->
         <div class="modal-info-panel">
           <h2 id="modal-title" class="modal-project-title">Título do Projeto</h2>
           <p id="modal-summary" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);"></p>
@@ -189,18 +198,18 @@
               <span id="modal-area" class="modal-spec-val">---</span>
             </div>
           </div>
+        </div>
 
-          <div style="margin-top: 1.5rem;">
-            <span class="tag-code" style="color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Tecnologias & Softwares</span>
-            <div id="modal-softwares" class="software-tags-wrap"></div>
-          </div>
+        <!-- Linha Inferior: Miniaturas (Esquerda) e Botão Veja Mais (Direita) -->
+        <div class="modal-thumbs-wrap">
+          <div id="modal-thumbs" class="modal-gallery-thumbs"></div>
+        </div>
 
-          <div class="modal-actions-footer">
-            <a id="modal-full-link" href="#" class="btn btn-primary" style="flex: 1;">
-              Abrir Memorial Completo & Pranchas
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
+        <div class="modal-actions-footer">
+          <a id="modal-full-link" href="#" class="btn btn-primary">
+            Veja mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
     </div>

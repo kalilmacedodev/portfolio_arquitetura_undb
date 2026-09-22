@@ -35,6 +35,7 @@
   --font-mono: 'Space Mono', monospace;
 
   /* Espaçamentos */
+  --header-height: 74px;
   --container-max: 1520px;
   --container-pad: clamp(1.25rem, 4vw, 3.5rem);
 

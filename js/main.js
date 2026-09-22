@@ -3,6 +3,18 @@
  * Renderização dinâmica, filtros por categoria, busca e modal de visualização rápida
  */
 
+// Ritmos e defasagens verticais assimétricas (sem alinhamento horizontal coincidente)
+const RHYTHM_CLASSES = [
+  'card-flow-0',
+  'card-flow-1',
+  'card-flow-2',
+  'card-flow-3',
+  'card-flow-4',
+  'card-flow-5',
+  'card-flow-6',
+  'card-flow-7'
+];
+
 document.addEventListener('DOMContentLoaded', () => {
   // Estado da Galeria
   const state = {
@@ -23,8 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Elementos do Modal
   const modalBackdrop = document.getElementById('project-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
-  const modalProjectCode = document.getElementById('modal-code');
-  const modalCategoryTag = document.getElementById('modal-category');
   const modalTitle = document.getElementById('modal-title');
   const modalSummary = document.getElementById('modal-summary');
   const modalMainImage = document.getElementById('modal-main-image');
@@ -33,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalAdvisor = document.getElementById('modal-advisor');
   const modalLocation = document.getElementById('modal-location');
   const modalArea = document.getElementById('modal-area');
-  const modalSoftwares = document.getElementById('modal-softwares');
   const modalFullPageLink = document.getElementById('modal-full-link');
 
   // Inicializar Galeria
@@ -119,40 +128,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Render em Grade Editorial
+  // Render em Grade Editorial Assimétrica
   function renderGridView(projects) {
-    let html = `<div class="projects-grid">`;
+    let html = `<div class="projects-editorial-flow">`;
 
     projects.forEach((proj, idx) => {
-      // Cria ritmo visual assimétrico inspirado em publicações de arquitetura
-      let spanClass = 'span-6';
-      if (idx === 0 && projects.length >= 3) {
-        spanClass = 'span-12'; // Primeiro projeto com destaque imersivo
-      } else if (idx % 5 === 3) {
-        spanClass = 'span-4';
-      } else if (idx % 5 === 4) {
-        spanClass = 'span-8';
-      }
+      const rhythmClass = RHYTHM_CLASSES[idx % RHYTHM_CLASSES.length];
+      const periodText = proj.periodLabel || `${proj.semester} • ${proj.year}`;
 
       html += `
-        <article class="project-card ${spanClass}" data-id="${proj.id}">
-          <div class="project-card__thumb-wrap" onclick="window.location.href='projeto.html?id=${proj.id}'" style="cursor: pointer;">
+        <article class="project-card ${rhythmClass}" data-id="${proj.id}">
+          <div class="project-card__thumb-wrap" onclick="window.openQuickModal('${proj.id}')">
             <img src="${proj.coverImage}" alt="${proj.title}" class="project-card__thumb" loading="lazy" />
           </div>
 
-          <div class="project-card__meta-bar">
-            <span class="tag-code">${proj.year}</span>
-            <span class="tag-code">${proj.location}</span>
-          </div>
-
-          <h3 class="project-card__title">
-            <a href="projeto.html?id=${proj.id}">${proj.title}</a>
-          </h3>
-          <p class="project-card__authors">Autores: ${proj.author} • Orientação: ${proj.advisor}</p>
-          <div class="project-card__specs-row">
-            <span>Área: ${proj.area}</span>
-            <span>•</span>
-            <span>${proj.semester}</span>
+          <div class="project-card__meta-content">
+            <div class="project-card__line-location">${proj.location}</div>
+            <h3 class="project-card__line-title">
+              <a href="javascript:void(0)" onclick="window.openQuickModal('${proj.id}')">${proj.title}</a>
+            </h3>
+            <div class="project-card__line-period">${periodText}</div>
           </div>
         </article>
       `;
@@ -228,8 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.activeModalProject = project;
 
-    modalProjectCode.textContent = project.code;
-    modalCategoryTag.textContent = project.categoryLabel;
     modalTitle.textContent = project.title;
     modalSummary.textContent = project.summary;
     modalAuthor.textContent = project.author;
@@ -252,13 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     });
     modalThumbsContainer.innerHTML = thumbsHtml;
-
-    // Softwares
-    let softHtml = '';
-    project.softwares.forEach(s => {
-      softHtml += `<span class="software-tag">${s}</span>`;
-    });
-    modalSoftwares.innerHTML = softHtml;
 
     modalBackdrop.classList.add('is-open');
     document.body.style.overflow = 'hidden';
