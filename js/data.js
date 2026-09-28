@@ -302,3 +302,8 @@ const UNDB_COURSE_INFO = {
     }
   ]
 };
+
+if (typeof window !== 'undefined') {
+  window.UNDB_PROJECTS = UNDB_PROJECTS;
+  window.UNDB_COURSE_INFO = UNDB_COURSE_INFO;
+}
